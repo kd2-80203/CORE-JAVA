@@ -1,6 +1,7 @@
 package com;
 
-import java.util.Scanner;
+import java.util.*;
+
 
 public class Test {
 	
@@ -25,50 +26,79 @@ public class Test {
 
 	public static void main(String[] args) {
 		
-		/*1. Add new book in list.
-2. Display all books in forward order.
-3. Delete at book given index -- list.remove(index);
-4. Check if book with given isbn is in list or not
-5. Delete all books in list
-6. Display number of books in list
-7. Sort all books by price in desc order -- l
-		 * */
 
+		Scanner sc=new Scanner(System.in);
+		
+		List<Book>arr=new ArrayList<Book>();
+		//Book book=new Book();
+		CompareBookPrice c=new CompareBookPrice();
+		
+		
 		int choise;
-		while(0!=(choise=menu())
+		while(0!=(choise=menu()))
 		{
 			switch (choise) {
-			case 1:
-				
+			case 1://1. Add new book in list
+				Book bk=new Book();
+				bk.accept();
+				arr.add(bk);
+				System.out.println("Book added susscessfully");
 				break;
              
-			case 2:
-				
+			case 2://2. Display all books in forward order.
+				Iterator<Book> itr = arr.iterator();
+				while(itr.hasNext())
+				{
+					Book b=itr.next();
+					System.out.println(b);
+				}
 				break;
             
-			case 3:
-				
+			case 3://3. Delete at book given index -- list.remove(index)
+				System.out.println("Enter the index no at which you want delete the book");
+				int index=sc.nextInt();
+				arr.remove(index);
 				break;
 				
-            case 4:
-				
+            case 4://4. Check if book with given isbn is in list or not
+			{   System.out.println("Enter the isbn no of book");
+				String isbn=sc.next();
+				Book key=new Book();
+				key.setIsbn(isbn);
+				if(arr.contains(key))
+				{
+					System.out.println("Book is Found");
+				}
+				else {
+					System.out.println("Book is Not Found");
+				}
+			}
 				break;
 				
-            case 5:
+            case 5://5. Delete all books in list
 	
+            	arr.clear();
+            	System.out.println("All books are erased");
 	            break;
 	           
-            case 6:
+            case 6://6. Display number of books in list
+            	
+            	System.out.println("The no of books present in collections are :"+arr.size());
 				
 				break;
 				
-            case 7:
-				
+            case 7://7. Sort all books by price in desc order -- l
+            	
+            	arr.sort(c);
+            	System.out.println("Array Sorted Sucessfully on price ");
 				break;
 			default:
 				break;
 			}
+			System.out.println("------------------------------------------------------------------------");
 		}
+		
+		System.out.println("THANK YOU FOR USING THE APPLICATION");
 		
 	}
 

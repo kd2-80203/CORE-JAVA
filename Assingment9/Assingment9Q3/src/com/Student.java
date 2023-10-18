@@ -76,7 +76,7 @@ class StudentCompare implements Comparator<Student> {
 		
 		int dff=-s1.getCity().compareToIgnoreCase(s2.getCity());
 		if(dff==0)
-			dff=s1.getMarks().compareTo(s2.getMarks());
+			dff=-s1.getMarks().compareTo(s2.getMarks());
 		if(dff==0)
 			dff=s1.getName().compareToIgnoreCase(s2.getName());
 		return dff;	
