@@ -33,7 +33,7 @@ public class Test {
 		{
 			switch (choise) 
 		  {
-			case 1:
+			case 1://add new student in list
 			{
 				Student student=new Student();
 				student.accept();
@@ -41,9 +41,18 @@ public class Test {
 				System.out.println();
 			}
 				break;
-			case 2:
+			case 2:// get student search by roll no
 			{
-				
+				System.out.println("Enter the Roll no of student");
+				int rollNo=sc.nextInt();
+				Student s=stuList.get(rollNo);
+				if(s!=null)
+				{
+				  System.out.println(s);
+				}
+				else {
+					System.out.println("Student Not found :Pls Enter Valid Roll No ");
+				}
 			}
 				break;
 
